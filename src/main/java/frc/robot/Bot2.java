@@ -14,14 +14,14 @@ public class Bot2 extends TimedRobot {
 	// Let's define our constants here. Why? Because they're easy to find when
 	// tuning.
 	// They are implemented below
-	private static final double Kp = 0.5; // <- when i say change Kp, it’s this!
+	private static final double Kp = 0.45; // <- when i say change Kp, it’s this!
 	private static final double Ki = 0.0;
 	private static final double Kf = 0.0; // no feed-forward on position control
 	private static final double Kd = 0;
 	private static final int IZone = 100; // IZone, this is explained below
 
 	Joystick joystick = new Joystick(0);
-	TalonSRX _motor = new TalonSRX(1);
+	TalonSRX _motor = new TalonSRX(0);
 	Faults _faults = new Faults(); /* temp to fill with latest faults */
 
 	@Override
@@ -64,8 +64,8 @@ public class Bot2 extends TimedRobot {
 		// These should never really change
 		_motor.configNominalOutputForward(0, 0);
 		_motor.configNominalOutputReverse(0, 0);
-		_motor.configPeakOutputForward(0.07, 0);
-		_motor.configPeakOutputReverse(-0.07, 0);
+		_motor.configPeakOutputForward(0.1, 0);
+		_motor.configPeakOutputReverse(-0.1, 0);
 
 		// set this if your encoder is hooked up backwards (A<--->B)
 		// mine is backwards, so I've set it to true
